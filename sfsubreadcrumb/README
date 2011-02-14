@@ -1,0 +1,3 @@
+A utility function for creating a breadcrumb that meet's the SF State template guidelines
+To use, enable this module, then in your theme's page.tpl.php replace print $breadcrumb with
+print sfsubreadcrumb_custom() 

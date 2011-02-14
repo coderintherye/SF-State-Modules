@@ -1,0 +1,32 @@
+<?php
+// $Id$
+
+/**
+ * @file
+ * Utility module for setting the breadcrumb trail
+ * Tries to make the breadcrumb conform to SF State template standards
+ */
+
+function sfsubreadcrumb_custom() {
+  $sfsu_breadcrumb = drupal_get_breadcrumb();
+  if ($sfsu_breadcrumb && user_access('access content')) {
+    if(count($sfsu_breadcrumb) == 1) {
+      $sfsu_breadcrumb = NULL; // Basically if Home is the only breadcrumb link, remove breadcrumb
+    }
+    else {
+     if(strpos($sfsu_breadcrumb[0], 'Home')) {
+        // Remove Home from Breadcrumb cause not part of template
+        array_shift($sfsu_breadcrumb);
+      }
+      foreach($sfsu_breadcrumb as $bc) {
+        $sfsu_breadcrumb_part .= ' &gt; '. $bc;
+      }
+      // If we put a > at the beginning of the breadcrumb, remove it
+      if($sfsu_breadcrumb_part[1] == '&') {
+        $sfsu_breadcrumb_part = substr($sfsu_breadcrumb_part, 5);
+      }
+      $breadcrumb_display = '<p id="top">'. $sfsu_breadcrumb_part .'</p>';
+      return $breadcrumb_display;
+    }
+  }  
+}

@@ -1,0 +1,5 @@
+; $Id
+name = SFSU Breadcrumb
+description = "Provides a breadcrumb formatted to the sf state template standards"
+package = sfsu -> util
+core = 6.x
