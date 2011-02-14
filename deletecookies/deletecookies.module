@@ -1,0 +1,31 @@
+<?php
+// $Id$
+
+/**
+ * @file
+ * Functions to execute when a user logs out
+ * 
+ */
+
+/**
+ * Implementation of hook_menu().
+ */
+function deletecookies_block() {
+  return NULL;
+}
+
+/**
+ * Retrieving XML data from the URL
+ */
+function deletecookies_user($op, &$edit, &$account, $category = NULL) {
+  global $user;
+  
+  if ($op == "logout") {
+    $cookiesSet = array_keys($_COOKIE);
+    $domain = ($_SERVER['HTTP_HOST'] != 'localhost') ? ("." . $_SERVER['HTTP_HOST']) : FALSE;
+    for ($x=0;$x<count($cookiesSet);$x++) {
+      setcookie($cookiesSet[$x], "", time()-3600, "/", $domain, 0, TRUE);
+      setcookie($cookiesSet[$x], "", time()-3600, "/", "", 0, TRUE);
+    }//for
+  }
+}

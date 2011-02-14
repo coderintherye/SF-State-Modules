@@ -1,0 +1,5 @@
+; $Id: deletecookies, v 1.0 11/5/2009 jasond11 $
+name = Delete Cookies
+description = Provides functionality to  delete the cookies from the client side upon user logout
+package = sfsu -> util
+core = 6.x
