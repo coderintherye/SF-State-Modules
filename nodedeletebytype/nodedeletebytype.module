@@ -1,0 +1,15 @@
+<?php
+// $Id: nodedeletebytype.module,v 1.0 2010/02/25 10:00:05 supakitk Exp $
+
+/**
+ * @file
+ * Functions to nodedeletebytype in Drupal.
+ * 
+ */
+
+/**
+ * Implementation of hook_menu().
+ */
+function nodedeletebytype_block() {
+  return NULL;
+}

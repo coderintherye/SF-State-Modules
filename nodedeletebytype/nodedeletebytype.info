@@ -1,0 +1,7 @@
+; $Id: nodedeletebytype,v 1.0 2010/09/16 15:07:36 supakitk Exp $
+name = Node delete by type
+description = "Create function to delete nodes by type with Drush support"
+package = sfsu -> util
+version = "6.x-1.5"
+core = "6.x"
+project = "nodedeletebytype"
